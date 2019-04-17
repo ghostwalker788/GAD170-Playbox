@@ -8,12 +8,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class NerfDartBehaviour : MonoBehaviour
 {
-
+    public GameObject Self;
     protected new Rigidbody rigidbody;
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        Invoke("Despawn", 20.0f);
     }
 
     private void LateUpdate()
@@ -22,5 +23,9 @@ public class NerfDartBehaviour : MonoBehaviour
         // an object with colliders that will then have new overlaps and be physic'ed apart
         if(rigidbody.velocity.sqrMagnitude > 0.5f)
             transform.rotation = Quaternion.LookRotation( rigidbody.velocity.normalized, Vector3.up);
+    }
+    private void Despawn()
+    {
+        Destroy(Self);
     }
 }
