@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6364695491433825870}
   m_Layer: 11
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: NerfDart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,6 +156,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Self: {fileID: 4095517819456405298}
+  APT: 0
+  TRPC: 0
+  TRSC: 1
 --- !u!114 &7562972767519098241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +184,7 @@ GameObject:
   - component: {fileID: 5119153557021328024}
   m_Layer: 11
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: NerfDart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

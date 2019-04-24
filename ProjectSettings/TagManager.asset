@@ -7,6 +7,13 @@ TagManager:
   - Ball
   - NerfDart
   - BowlingBall
+  - bulls eye
+  - 10 pints
+  - 8 ponts
+  - 6 ponts
+  - 4 points
+  - 2 points
+  - floor
   layers:
   - Default
   - TransparentFX
