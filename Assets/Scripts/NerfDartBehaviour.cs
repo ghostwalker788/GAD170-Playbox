@@ -24,6 +24,7 @@ public class NerfDartBehaviour : MonoBehaviour
         Invoke("Despawn", 20.0f);
         APT = 1;
         target = FindObjectOfType<Target>();
+        Invoke("GatherTRSC", 0.0f);
     }
 
     private void LateUpdate()
@@ -40,32 +41,34 @@ public class NerfDartBehaviour : MonoBehaviour
     public void GatherTRSC()
     {
         target.SendTRSC();
+        //Debug.Log("looking for target range shot cout");
     }
     public void ReciveTRSC(int amount)
     {
+        //Debug.Log("data recived");
         if(amount > 0)
         {
             TRPG = 1;
+            TRSC = amount;
+            //Debug.Log("still have shots");
         }
-        Debug.Log("Atempts left " + amount);
+        
     }
 
 
 
     private void OnCollisionEnter(Collision collision)
-    {
-        if (TRPG == 1)
-        {
+    { 
             if (collision.gameObject.tag == "bulls eye")
             {
                 if (APT == 1)
                 {
                     APT = 0;
-                    if (TRSC > 0)
-                    {
+                     
+                    
                         TRPC = 15;
                         target.Targethit(TRPC);
-                    }
+                    
                 }
             }
             if (collision.gameObject.tag == "10 pints")
@@ -73,11 +76,11 @@ public class NerfDartBehaviour : MonoBehaviour
                 if (APT == 1)
                 {
                     APT = 0;
-                    if (TRSC > 0)
-                    {
+                     
+                    
                         TRPC = 10;
                         target.Targethit(TRPC);
-                    }
+                    
                 }
             }
             if (collision.gameObject.tag == "8 ponts")
@@ -85,11 +88,11 @@ public class NerfDartBehaviour : MonoBehaviour
                 if (APT == 1)
                 {
                     APT = 0;
-                    if (TRSC > 0)
-                    {
+                     
+                    
                         TRPC = 8;
                         target.Targethit(TRPC);
-                    }
+                    
                 }
             }
             if (collision.gameObject.tag == "6 ponts")
@@ -97,11 +100,11 @@ public class NerfDartBehaviour : MonoBehaviour
                 if (APT == 1)
                 {
                     APT = 0;
-                    if (TRSC > 0)
-                    {
+                     
+                    
                         TRPC = 6;
                         target.Targethit(TRPC);
-                    }
+                    
                 }
             }
             if (collision.gameObject.tag == "4 points")
@@ -109,11 +112,11 @@ public class NerfDartBehaviour : MonoBehaviour
                 if (APT == 1)
                 {
                     APT = 0;
-                    if (TRSC > 0)
-                    {
+                     
+                    
                         TRPC = 4;
                         target.Targethit(TRPC);
-                    }
+                    
                 }
             }
             if (collision.gameObject.tag == "2 points")
@@ -121,13 +124,11 @@ public class NerfDartBehaviour : MonoBehaviour
                 if (APT == 1)
                 {
                     APT = 0;
-                    if (TRSC > 0)
-                    {
+                     
+                    
                         TRPC = 2;
                         target.Targethit(TRPC);
-                    }
                 }
             }
         }
-    }
 }
