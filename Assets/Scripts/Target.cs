@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Target : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Target : MonoBehaviour
     public NerfDartBehaviour[] Dartlist;
     public int DLC;
     public NerfGunItem gun;
+    public UnityEvent TargetRangeTask;
+    public int CurrentScore;
+    public int invokecount, IDUSB;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +26,11 @@ public class Target : MonoBehaviour
         if (AttempCount == 0)
         {
             gun.TRoff();
+            if (IDUSB == 0)
+            {
+                checkScore();
+            }
+            TRTMSF();
         }
         if (Input.GetKeyDown(KeyCode.Backslash))
         {
@@ -62,6 +71,27 @@ public class Target : MonoBehaviour
         gun.TRA();
         TRPC = 0;
         Debug.Log("target range on");
+    }
+    public void TRTMSF()
+    {
+        if (invokecount > 0)
+        {
+            TargetRangeTask?.Invoke();
+            invokecount -= 1;
+        }
+        else
+        {
+            IDUSB = 0;
+        }
+    }
+    public void checkScore()
+    {
+        if (TRPC > CurrentScore)
+        {
+            invokecount = TRPC - CurrentScore;
+            CurrentScore += invokecount;
+            IDUSB = 1;
+        }
     }
 }
 

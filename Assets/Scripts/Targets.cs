@@ -31,7 +31,7 @@ public class Targets : MonoBehaviour
             }
         }
 
-        Debug.Log(Vector3.Distance(transform.position, MoveDerection));
+        //Debug.Log(Vector3.Distance(transform.position, MoveDerection));
 
         if (MoveDerection == LeftTrancform.position)
         {
